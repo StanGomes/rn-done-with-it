@@ -3,8 +3,10 @@ import { StyleSheet, Image, View, TouchableHighlight } from 'react-native';
 import colors from '../config/colors';
 import AppText from './AppText';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import defaultStyles from '../config/styles';
 
-export default function ListItem({ title, subTitle, image, onPress, renderRightActions, IconComponent, backgroundColor = colors.white }) {
+export default function ListItem({ title, subTitle, image, onPress, renderRightActions, IconComponent, backgroundColor = colors.white, showChevron = false, }) {
     return (
         <Swipeable renderRightActions={renderRightActions}>
             <TouchableHighlight
@@ -14,9 +16,10 @@ export default function ListItem({ title, subTitle, image, onPress, renderRightA
                     {IconComponent}
                     {image && <Image style={styles.image} source={image} />}
                     <View style={styles.detailContainer}>
-                        <AppText styles={styles.title}>{title}</AppText>
-                        {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+                        <AppText styles={styles.title} numberOfLines={2}>{title}</AppText>
+                        {subTitle && <AppText style={styles.subTitle} numberOfLines={5}>{subTitle}</AppText>}
                     </View>
+                    {showChevron && <MaterialCommunityIcons name="chevron-right" size={35} color={defaultStyles.colors.mediumGrey} />}
                 </View>
             </TouchableHighlight>
         </Swipeable>
@@ -30,9 +33,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     image: {
-        width: 70,
-        height: 70,
-        borderRadius: 35,
+        width: 60,
+        height: 60,
+        borderRadius: 30,
     },
     title: {
         fontWeight: "500",
@@ -41,7 +44,8 @@ const styles = StyleSheet.create({
         color: colors.mediumGrey
     },
     detailContainer: {
-        marginLeft: 10,
+        flex: 1,
+        marginHorizontal: 10,
         justifyContent: "center"
     },
 });

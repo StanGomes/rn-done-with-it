@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import defaultStyles from '../config/styles';
-import BodyText from './AppText';
+import AppText from './AppText';
 
 export default function Card({ title, subTitle, image, style }) {
     return (
         <View style={[styles.card, style]}>
             <Image style={styles.image} source={image} />
             <View style={styles.detailContainer}>
-                <BodyText>{title}</BodyText>
-                <BodyText style={styles.subTitle}>{subTitle}</BodyText>
+                <AppText numberOfLines={2}>{title}</AppText>
+                <AppText style={styles.subTitle} numberOfLines={5}>{subTitle}</AppText>
             </View>
         </View >
     );
