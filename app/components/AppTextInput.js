@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         color: defaultStyles.colors.darkGrey,
-        fontSize: 18,
+        fontSize: 16,
         width: "100%",
     },
     icon: {

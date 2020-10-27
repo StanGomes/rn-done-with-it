@@ -3,6 +3,7 @@ import { StyleSheet, } from 'react-native';
 import Screen from '../components/Screen';
 import * as Yup from 'yup';
 import { AppForm, AppFormField, SubmitButton, AppFormPicker } from '../components/forms';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label("Title"),
@@ -12,15 +13,14 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-    {
-        label: "Clothing", value: 1
-    },
-    {
-        label: "Electronics", value: 2
-    },
-    {
-        label: "Furniture", value: 3
-    }
+    { label: "Furniture", value: 1, backgroundColor: '#fc5c65', icon: 'floor-lamp' },
+    { label: "Cars", value: 2, backgroundColor: '#fd9644', icon: 'car' },
+    { label: "Cameras", value: 3, backgroundColor: '#fed330', icon: 'lock' },
+    { label: "Games", value: 4, backgroundColor: '#26de81', icon: 'cards' },
+    { label: "Clothing", value: 5, backgroundColor: '#2bcbba', icon: 'shoe-heel' },
+    { label: "Sports", value: 6, backgroundColor: '#45aaf2', icon: 'basketball' },
+    { label: "Movies & Music", value: 7, backgroundColor: '#4b7bec', icon: 'headphones' },
+
 ];
 
 export default function ListingEditScreen() {
@@ -49,6 +49,8 @@ export default function ListingEditScreen() {
                     name="category"
                     items={categories}
                     placeholder="Category"
+                    PickerItemComponent={CategoryPickerItem}
+                    numberOfColumns={3}
                 />
                 <AppFormField
                     name="description"
