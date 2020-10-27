@@ -1,21 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, } from 'react-native';
-import WelcomeScreen from './app/screens/WelcomeScreen';
-import colors from './app/config/colors';
-import Card from './app/components/Card';
-import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
-import ViewImageScreen from './app/screens/ViewImageScreen';
-import MessagesScreen from './app/screens/MessagesScreen';
-import Screen from './app/components/Screen';
-import Icon from './app/components/Icon';
-import ListItem from './app/components/ListItem';
-import AccountScreen from './app/screens/AccountScreen';
-import ListingsScreen from './app/screens/ListingsScreen';
+import { StyleSheet, } from 'react-native';
+import defaultStyles from './app/config/styles';
+import ListingEditScreen from './app/screens/ListingEditScreen';
+import LoginScreen from './app/screens/LoginScreen';
+import RegisterScreen from './app/screens/RegisterScreen';
+
 
 export default function App() {
+
   console.log("App Executed");
   return (
-    <ListingsScreen />
+    <ListingEditScreen />
   );
 }
 
@@ -29,7 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: "dodgerblue",
     height: 100,
     width: 100,
-    borderColor: colors.primary,
+    borderColor: defaultStyles.colors.primary,
     borderWidth: 4,
     borderRadius: 50,
     elevation: 20,
