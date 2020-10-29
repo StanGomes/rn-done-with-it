@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Image, View, TouchableHighlight, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
 import colors from '../config/colors';
 import AppText from './AppText';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
@@ -9,7 +9,7 @@ import defaultStyles from '../config/styles';
 export default function ListItem({ title, subTitle, image, onPress, renderRightActions, IconComponent, backgroundColor = colors.white, showChevron = false, }) {
     return (
         <Swipeable renderRightActions={renderRightActions}>
-            <TouchableHighlight
+            <TouchableWithoutFeedback
                 underlayColor={colors.lightGrey}
                 onPress={onPress}>
                 <View style={[styles.container, { backgroundColor: backgroundColor }]}>
@@ -19,9 +19,9 @@ export default function ListItem({ title, subTitle, image, onPress, renderRightA
                         <AppText styles={styles.title} numberOfLines={2}>{title}</AppText>
                         {subTitle && <AppText style={styles.subTitle} numberOfLines={5}>{subTitle}</AppText>}
                     </View>
-                    {showChevron && <MaterialCommunityIcons name="chevron-right" size={35} color={defaultStyles.colors.mediumGrey} />}
+                    {showChevron && <MaterialCommunityIcons name="chevron-right" size={30} color={defaultStyles.colors.mediumGrey} />}
                 </View>
-            </TouchableHighlight>
+            </TouchableWithoutFeedback>
         </Swipeable>
     );
 }

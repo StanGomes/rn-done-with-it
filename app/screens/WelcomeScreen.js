@@ -2,8 +2,11 @@ import React from 'react';
 import { Image, ImageBackground, StyleSheet, View } from 'react-native';
 import BodyText from '../components/AppText';
 import AppButton from '../components/AppButton';
+import routes from '../navigation/routes';
 
-function WelcomeScreen(props) {
+
+function WelcomeScreen({ navigation }) {
+
     const backgroundUrl = require('../assets/background.jpg');
     const logoUrl = require('../assets/logo-red.png');
     return (
@@ -15,8 +18,8 @@ function WelcomeScreen(props) {
                 <BodyText>Sell what you don't need</BodyText>
             </View>
             <View style={styles.buttonContainer}>
-                <AppButton title="login" />
-                <AppButton color="secondary" title="register" />
+                <AppButton title="login" onPress={() => navigation.navigate(routes.LOGIN)} />
+                <AppButton color="secondary" title="register" onPress={() => navigation.navigate(routes.REGISTER)} />
             </View>
         </ImageBackground>
     );
