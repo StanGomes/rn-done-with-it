@@ -36,7 +36,7 @@ export default function LoginScreen() {
                     textContentType="password"
                     secureTextEntry
                 />
-                <SubmitButton title="Submit" />
+                <SubmitButton title="Login" />
             </AppForm>
 
         </Screen >

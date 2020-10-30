@@ -1,17 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import defaultStyles from '../config/styles';
 import AppText from './AppText';
 
-export default function Card({ title, subTitle, image, style }) {
+export default function Card({ title, subTitle, image, style, onPress }) {
     return (
-        <View style={[styles.card, style]}>
-            <Image style={styles.image} source={image} />
-            <View style={styles.detailContainer}>
-                <AppText numberOfLines={2}>{title}</AppText>
-                <AppText style={styles.subTitle} numberOfLines={5}>{subTitle}</AppText>
-            </View>
-        </View >
+        <TouchableOpacity onPress={onPress}>
+            <View style={[styles.card, style]}>
+                <Image style={styles.image} source={image} />
+                <View style={styles.detailContainer}>
+                    <AppText numberOfLines={2}>{title}</AppText>
+                    <AppText style={styles.subTitle} numberOfLines={5}>{subTitle}</AppText>
+                </View>
+            </View >
+        </TouchableOpacity>
     );
 }
 
